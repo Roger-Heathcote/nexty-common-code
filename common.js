@@ -9,6 +9,7 @@ function err(code, userMsg, logMsg, orig = null) {
 }
 
 module.exports = {
+	defaultListId: "000000000000000000000000",
 	archivedArgsRegex: /^true$/,
 	err,
 	domainRegex: /^[^-][a-zA-Z0-9.-]{0,253}[^-.]$/,
