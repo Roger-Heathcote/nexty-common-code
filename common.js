@@ -20,7 +20,7 @@ module.exports = {
 	listIdRegex: /^(0|A|[a-f0-9]{20})$/,
 	mongoIdRegex: /^[a-f0-9]{24}$/,
 	onlyRegex: /^[a-z0-9#]+( *[a-z0-9\\/:\-()[\].?#]+)*$/,
-	sortOrdersRegex: /^(dateAsc|dateDesc|lenAsc|lenDesc|alphAsc|alphDesc)$/,
+	sortOrdersRegex: /^(dateAsc|dateDesc|lenAsc|lenDesc|alphAsc|alphDesc|user)$/,
 	tagRegex: /^[a-z0-9#]+( *[a-z0-9\\/:\-()[\].?#]+)*$/,
 	urlRegex: /[a-zA-Z0-9]{1,12}:\/\/[^-][a-zA-Z0-9.-]{0,253}[^-.](:\d{1,5})?\/[a-zA-Z0-9?/\-._~=]{0,255}/,
 }
