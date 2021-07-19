@@ -4,7 +4,8 @@
   "description": "Common code for the nexty project",
   "main": "common.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "testdev": "jest --watchAll"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/Roger-Heathcote/nexty-common-code/issues"
   },
-  "homepage": "https://github.com/Roger-Heathcote/nexty-common-code#readme"
+  "homepage": "https://github.com/Roger-Heathcote/nexty-common-code#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  },
+  "dependencies": {}
 }
