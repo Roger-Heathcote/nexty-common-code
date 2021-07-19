@@ -14,7 +14,7 @@ module.exports = {
 	domainRegex: /^[^-][a-zA-Z0-9.-]{0,253}[^-.]$/,
 	emailRegex: /(.+)@(.+){2,}\.(.+){2,}/,
 	err,
-	hasArgsRegex: /^[a-zA-Z0-9]+$/,
+	hasArgsRegex: /^[a-zA-Z0-9'"]+$/,
 	intStringRegex: /^[0-9]+$/, 
 	listRegex: /^[a-zA-Z0-9#]+( *[a-zA-Z0-9\\/:\-()[\].?#]+)*$/,
 	listIdRegex: /^(0|A|[a-f0-9]{20})$/,
