@@ -1,3 +1,29 @@
+function humaneTimestampDiff(then, now) {
+    if (then === undefined || now === undefined) {
+        throw Error("humaneDate requires two time stamps to compare");
+    }
+    if (!typeof then === typeof 1 || !typeof now === typeof 1) {
+        throw Error("humaneDate requires two numbers in ms to compare");
+    }
+    if (now < then) {
+        throw Error("Then time should be lower than now time!");
+    }
+
+    const minute = 60;
+    const hour = 60 * minute;
+    const day = 24 * hour;
+    const week = 7 * day;
+    const year = 52 * week;
+
+    const diff = now / 1000 - then / 1000;
+    if (diff < minute) return "<1m";
+    if (diff < hour) return `${Math.floor(diff / minute)}m`;
+    if (diff < day) return `${Math.floor(diff / hour)}h`;
+    if (diff < week) return `${Math.floor(diff / day)}d`;
+    if (diff < year) return `${Math.floor(diff / week)}w`;
+    return `${Math.floor(diff / year)}y`;
+}
+
 function err(code, userMsg, logMsg, orig = null) {
 	const err = new Error(userMsg)
 	err.status = code
@@ -15,6 +41,7 @@ module.exports = {
 	emailRegex: /(.+)@(.+){2,}\.(.+){2,}/,
 	err,
 	hasArgsRegex: /^[a-zA-Z0-9'"]+$/,
+	humaneTimestampDiff,
 	intStringRegex: /^[0-9]+$/, 
 	listRegex: /^[a-zA-Z0-9#]+( *[a-zA-Z0-9\\/:\-()[\].?#]+)*$/,
 	listIdRegex: /^(0|A|[a-f0-9]{20})$/,
