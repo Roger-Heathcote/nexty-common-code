@@ -1,3 +1,17 @@
+function getDupes(arr){
+	return Array.from(arr.reduce(function(acc, item) {
+		if(arr.indexOf(item) !== arr.lastIndexOf(item)) acc.add(item)
+		return acc
+	}, new Set()))
+}
+
+function nukeDupes(arr){
+	return arr.reduce(function(acc, item){
+		if (acc.indexOf(item) === -1) acc.push(item)
+		return acc
+	}, [])
+}
+
 function humaneTimestampDiff(then, now) {
     if (then === undefined || now === undefined) {
         throw Error("humaneDate requires two time stamps to compare");
@@ -40,12 +54,14 @@ module.exports = {
 	domainRegex: /^[^-][a-zA-Z0-9.-]{0,253}[^-.]$/,
 	emailRegex: /(.+)@(.+){2,}\.(.+){2,}/,
 	err,
+	getDupes,
 	hasArgsRegex: /^[a-zA-Z0-9'"]+$/,
 	humaneTimestampDiff,
 	intStringRegex: /^[0-9]+$/, 
 	listRegex: /^[a-zA-Z0-9#]+( *[a-zA-Z0-9\\/:\-()[\].?#]+)*$/,
 	listIdRegex: /^(0|A|[a-f0-9]{20})$/,
 	mongoIdRegex: /^[a-f0-9]{24}$/,
+	nukeDupes,
 	onlyRegex: /^[a-z0-9#]+( *[a-z0-9\\/:\-()[\].?#]+)*$/,
 	sortOrdersRegex: /^(dateAsc|dateDesc|lenAsc|lenDesc|alphAsc|alphDesc|user)$/,
 	tagRegex: /^[a-z0-9#]+( *[a-z0-9\\/:\-()[\].?#]+)*$/,

@@ -1,6 +1,8 @@
 const {
 	hasArgsRegex,
-	humaneTimestampDiff
+	humaneTimestampDiff,
+	getDupes,
+	nukeDupes
 } = require('./common')
 
 describe("Regular expression tests", ()=>{
@@ -79,4 +81,28 @@ describe("Humane date diff tests", function () {
 	it("Should say '1234y' if called with 1234y difference", function () {
 		expect(humaneTimestampDiff(0, 1234 * 52 * 7 * 24 * 60 * 60 * 1000)).toEqual("1234y")
 	})
+})
+
+
+describe("Dupe detection and removal", ()=>{
+
+	// getDupes should return an array the of duplicates in any array of primitives
+	describe('getDupes tests', ()=>{
+		it('Returns an array of the dupes present in a mixed array', ()=>{
+			const listWithDupes = [false, "bing", 2, "", 3, "bong", undefined, 2, undefined, ""]
+			expect(getDupes(listWithDupes).length).toBe(3)
+			expect(getDupes(listWithDupes)[0]).toBe(2)
+			expect(getDupes(listWithDupes)[1]).toBe("")
+			expect(getDupes(listWithDupes)[2]).toBe(undefined)
+		})
+	})
+	
+	// nukeDupe should dedupe any array of primitives
+	describe('nukeDupes tests', ()=>{
+		it("Returns a mixed array of minus it's dupes.", ()=>{
+			const listWithDupes = [false, "bing", 2, "", 3, "bong", undefined, 2, undefined, ""]
+			expect( nukeDupes(listWithDupes).length ).toBe(7)
+		})
+	})
+
 })
