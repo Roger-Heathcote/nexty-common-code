@@ -51,6 +51,7 @@ function err(code, userMsg, logMsg, orig = null) {
 module.exports = {
 	archivedArgsRegex: /^true$/,
 	defaultListId: "000000000000000000000000",
+	defaultListName: "Inbox",
 	domainRegex: /^[^-][a-zA-Z0-9.-]{0,253}[^-.]$/,
 	emailRegex: /(.+)@(.+){2,}\.(.+){2,}/,
 	err,

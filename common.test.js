@@ -99,7 +99,7 @@ describe("Dupe detection and removal", ()=>{
 	
 	// nukeDupe should dedupe any array of primitives
 	describe('nukeDupes tests', ()=>{
-		it("Returns a mixed array of minus it's dupes.", ()=>{
+		it("Returns a mixed array minus it's dupes.", ()=>{
 			const listWithDupes = [false, "bing", 2, "", 3, "bong", undefined, 2, undefined, ""]
 			expect( nukeDupes(listWithDupes).length ).toBe(7)
 		})
